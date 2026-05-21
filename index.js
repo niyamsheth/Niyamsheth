@@ -4,6 +4,21 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // ── SMOOTH SCROLL (LENIS) ──
+  const lenis = new Lenis({
+    duration: 0.8,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    direction: 'vertical',
+    gestureDirection: 'vertical',
+    smooth: true,
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+
   // ── PRELOADER ──
   const preloader = document.getElementById('preloader');
   const preloaderFill = document.getElementById('preloaderFill');
@@ -137,15 +152,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!entry.isIntersecting) return;
       
       const el = entry.target;
-      const delay = el.getAttribute('data-delay');
       
-      if (delay) {
-        setTimeout(() => {
-          el.classList.add('active');
-        }, parseInt(delay));
-      } else {
-        el.classList.add('active');
-      }
+      el.classList.add('active');
       
       observer.unobserve(el);
     });
@@ -194,9 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (entry.isIntersecting) {
         const el = entry.target;
         const width = el.getAttribute('data-w');
-        setTimeout(() => {
-          el.style.width = `${width}%`;
-        }, 300); // Slight delay for effect
+        el.style.width = `${width}%`;
         observer.unobserve(el);
       }
     });
@@ -214,9 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const pct = parseInt(el.getAttribute('data-pct'));
         // max dashoffset is 264 (0%), min is 0 (100%)
         const offset = 264 - (264 * (pct / 100));
-        setTimeout(() => {
-          el.style.strokeDashoffset = offset;
-        }, 300);
+        el.style.strokeDashoffset = offset;
         observer.unobserve(el);
       }
     });
@@ -306,5 +310,19 @@ document.addEventListener('DOMContentLoaded', () => {
       heroGrid.style.transform = `translate(${x}px, ${y}px)`;
     }
   });
+
+  // ── PORTRAIT FLASHLIGHT HOVER ──
+  const portraitContainer = document.getElementById('portraitContainer');
+  const portraitMask = document.getElementById('portraitMask');
+
+  if (portraitContainer && portraitMask) {
+    portraitContainer.addEventListener('mousemove', (e) => {
+      const rect = portraitContainer.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      portraitMask.style.setProperty('--x', `${x}px`);
+      portraitMask.style.setProperty('--y', `${y}px`);
+    });
+  }
 
 });

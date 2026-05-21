@@ -83,26 +83,26 @@
     <div class="hero-floating-el hero-float-3" aria-hidden="true">▣</div>
 
     <div class="hero-content">
-      <div class="hero-tag reveal" data-delay="0">
+      <div class="hero-tag reveal">
         <span class="hero-tag-line"></span>
         GRAPHIC DESIGNER · BANGALORE
       </div>
 
       <h1 class="hero-title">
-        <span class="hero-title-line reveal" data-delay="100">
+        <span class="hero-title-line reveal">
           <span class="hero-title-word" data-char>NIYAM</span>
         </span>
-        <span class="hero-title-line hero-title-line--accent reveal" data-delay="200">
+        <span class="hero-title-line hero-title-line--accent reveal">
           <span class="hero-title-word" data-char>SHETH</span>
           <span class="hero-title-dot">.</span>
         </span>
       </h1>
 
-      <p class="hero-sub reveal" data-delay="400">
-        Visual storyteller crafting brands, posters &amp; identities that people remember.
+      <p class="hero-sub reveal">
+        Student Graphic Designer
       </p>
 
-      <div class="hero-cta reveal" data-delay="500">
+      <div class="hero-cta reveal">
         <a href="#work" class="btn-magnetic btn-primary" id="heroCtaPrimary">
           <span class="btn-text">View Work</span>
           <span class="btn-arrow">→</span>
@@ -165,22 +165,38 @@
             Design is how I<br/><em>speak</em> without words.
           </h2>
           <div class="about-portrait reveal">
-            <div class="portrait-placeholder">
-              <span>NS</span>
+            <div class="portrait-placeholder" id="portraitContainer">
+              <img src="profile.jpg.jpeg" alt="Niyam Sheth" class="portrait-img portrait-filtered" />
+              <div class="portrait-overlay"></div>
+              
+              <div class="portrait-unfiltered-mask" id="portraitMask">
+                <img src="profile.jpg.jpeg" alt="Niyam Sheth" class="portrait-img" />
+              </div>
+
               <div class="portrait-ring"></div>
               <div class="portrait-grain"></div>
             </div>
-            <div class="portrait-caption">2nd Year · Graphic Design</div>
+            <div class="portrait-caption">
+              <span class="caption-line">2nd Year</span>
+              <span class="caption-line highlight">Graphic</span>
+              <span class="caption-line highlight">Designer</span>
+            </div>
           </div>
         </div>
 
         <!-- Right: bio + stats + specialties -->
         <div class="about-right">
           <p class="about-bio reveal">
-            I'm a graphic design student based in Bangalore, currently in my 2nd year (4th sem). My obsession is turning ideas into visual systems — logos, posters, books, brochures, and full brand identities.
+            I’m a passionate <strong>graphic designer</strong> focused on <strong>branding</strong>, <strong>visual storytelling</strong>, and modern digital design. I enjoy creating clean, creative, and visually engaging designs that combine aesthetics with functionality. My work reflects attention to detail, <strong>strong typography</strong>, balanced layouts, and modern design trends.
           </p>
           <p class="about-bio reveal">
-            I've worked with <strong>MEVIA Studios</strong> as an Agency Partnership Manager &amp; Logo Designer, which gave me real-world client experience early on. Outside design, I'm deep into Formula 1, football, and storytelling — all of which feed directly into how I design.
+            I have experience working with <strong>Adobe Photoshop</strong> and <strong>Adobe Illustrator</strong>, where I’ve developed skills in <strong>logo design</strong>, <strong>poster creation</strong>, branding, photo editing, and digital visual communication. I enjoy experimenting with typography, color palettes, and creative compositions to create <strong>impactful visual identities</strong>.
+          </p>
+          <p class="about-bio reveal">
+            I’m constantly exploring new tools and techniques to improve my workflow and creativity. Designing for me is not just about visuals — it’s about <strong>communicating ideas</strong>, <strong>building identities</strong>, and creating memorable experiences through design.
+          </p>
+          <p class="about-bio reveal">
+            My goal is to continue growing as a designer and create professional, original, and <strong>visually compelling work</strong> that leaves a lasting impression.
           </p>
 
           <!-- Animated Stats -->
@@ -662,6 +678,7 @@
     <div class="footer-right">Designed &amp; built by Niyam Sheth</div>
   </footer>
 
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
   <script src="index.js"></script>
 </body>
 </html>
